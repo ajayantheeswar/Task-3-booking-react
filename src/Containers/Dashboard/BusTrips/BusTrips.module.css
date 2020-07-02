@@ -1,0 +1,21 @@
+.bus-trips{
+    padding:1.5rem;
+}
+
+.bus-trips button{
+    color: white;
+    background-color: red;
+    padding : 0.3rem 0.5rem;
+    border:none;
+    border-radius: 5px;
+}
+
+.trips-list{
+    padding: 0;
+    list-style: none;
+}
+
+.trips-list li {
+    max-width: 500px;
+    margin: auto;
+}

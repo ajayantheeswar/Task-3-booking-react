@@ -33,7 +33,7 @@ class TicketConfirmation extends Component{
         return (
             <div className={classes['confirmation']}>
                 <h2>Ticket Confirmed !!</h2>
-                <Ticket trip={this.props.trip} ticket={this.props.ticket} />
+                <Ticket trip={this.props.trip} ticket={this.props.ticket} islist/>
                 {<p>{'Rediecting you in ' + this.state.time + 'seconds'}</p>}
             </div>
         );

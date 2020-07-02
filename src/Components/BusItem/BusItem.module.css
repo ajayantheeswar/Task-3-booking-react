@@ -7,6 +7,10 @@
     margin: 0.5rem;
 }
 
+.bus-item:hover{
+    cursor: pointer;
+}
+
 .bus-phy-details{
     display: flex;
     justify-content: space-between;

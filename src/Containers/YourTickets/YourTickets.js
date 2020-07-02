@@ -12,10 +12,18 @@ class YourTicket extends Component {
         this.props.fetchTickets()
     }    
 
+    onChat = (tripId)=>{
+        this.props.history.push('/customer/chatroom/' + tripId)
+    }
+
+    onLocation = (tripId) => {
+        this.props.history.push('/customer/location/' + tripId)
+    }
     render(){
+
     
         const tickets = this.props.ticketList ? this.props.ticketList.map(ticket => {
-            return <Ticket cancel key={ticket.id} onCancel={() => this.props.onCancel(ticket.id)} ticket={ticket} trip={ticket.trip} />
+            return <Ticket cancel key={ticket.id} onLocation={() => this.onLocation(ticket.trip.id)} onChat={() => this.onChat(ticket.trip.id)} onCancel={() => this.props.onCancel(ticket.id)} ticket={ticket} trip={ticket.trip} />
         }) : null;
         
         return(<div className={classes['your-tickets']}>

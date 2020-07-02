@@ -26,6 +26,8 @@ const Ticket = props => {
                 </div>
             </div>
             {props.cancel ? <button onClick={props.onCancel}>Cancel</button> : null}
+            {props.trip.chat && !props.islist ? <button onClick={props.onChat}>Open Chat Room</button> : null }
+            {props.trip.chat && !props.islist ? <button onClick={props.onLocation}>See Current location</button> : null}
         </div>
     )
 }

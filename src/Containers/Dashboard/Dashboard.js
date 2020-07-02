@@ -64,13 +64,18 @@ class Dashboard extends Component {
 
     componentDidMount(){
         this.props.FetchBuses(this.props.token);
+        console.log(this.props);
+    }
+
+    onBusitemClicked(busno){
+        this.props.history.push('/admin/trips/' + busno);
     }
 
 
     render(){
 
         let busList = this.props.bus_list.map(bus => {
-            return <li key={bus.id}><BusItem Bus={bus} /></li> ;
+            return <li key={bus.id}><BusItem Bus={bus} onClick={() => this.onBusitemClicked(bus.busno)} /></li> ;
         });
 
         return (

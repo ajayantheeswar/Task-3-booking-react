@@ -22,3 +22,8 @@ export {
     FetchTicketsAsync,
     StarCancelAsync
 } from './yourTickets'
+
+export {
+    getTripsByBusAsync,
+    sendAlertAsync,
+} from './busTrips'

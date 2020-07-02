@@ -21,7 +21,7 @@ export const StartAuthAsync = (isSignUp,isAdmin,authDetails) => dispatch => {
    dispatch(AuthStart())
    axios.post(url,authDetails)
             .then(response =>{
-                dispatch(AuthSuccess(isAdmin,response.data.token));
+                dispatch(AuthSuccess(isAdmin,response.data.token,response.data.userId));
             })
             .catch(error => {
                 console.log("PODAMG",error.response.data);
@@ -29,7 +29,14 @@ export const StartAuthAsync = (isSignUp,isAdmin,authDetails) => dispatch => {
             });
 }
 
-export const AuthSuccess = (isAdmin,token) => {
+export const AuthSuccess = (isAdmin,token,userId) => {
+   
+    sessionStorage.setItem('token',token);
+    sessionStorage.setItem('isAdmin',isAdmin);
+    sessionStorage.setItem('userId',userId);
+    
+
+    
     return {
         type: actions.AUTH_SUCCESS,
         isAdmin : isAdmin,
@@ -51,6 +58,7 @@ export const AuthStart = ()=>{
 }
 
 export const logout = () =>{
+    sessionStorage.clear();
     return {
         type : actions.AUTH_LOGOUT
     }

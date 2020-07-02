@@ -3,7 +3,7 @@ import classes from './BusItem.module.css';
 import svg from '../../Assests/images/dAr.svg';
 
 const Busitem = props =>(
-    <div className={classes['bus-item']}>
+    <div onClick={props.onClick} className={classes['bus-item']}>
         <div className={classes['bus-phy-details']}>
             <span className={classes['bus-id']}>{props.Bus.busno}</span>
             <span className={classes['bus-seat']}>{props.Bus.capacity} Seats</span>
